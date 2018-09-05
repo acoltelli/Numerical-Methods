@@ -2,6 +2,8 @@ from numpy import *
 from numpy.linalg import *
 import unittest
 
+#TODO: add terminating statment if convergence does not occur 
+#TODO: add contraint that A does not have zeros in the diagonal 
 def jacobi(A, b, n):  
     D = diag(A) 
     var = A - diag(D)
