@@ -14,7 +14,7 @@ def jacobi(A, b, n):
     if residual > 1: #choose residual value of 1 to test for nonconvergence. This condition is sufficient for large enough values of n. 
 		exit("No Convergence")   
     return x 
-    
+
 def gaussSeidel(A, b, n):
     lower = tril(A) #lower, triangular matrix, including diagonal
     upper = triu(A,1) #upper triangular matrix sitting on top of, and not including, diagonal 
@@ -49,8 +49,10 @@ class Test(unittest.TestCase):
 
 		self.assertEqual(str(gaussSeidel(A,b,100)), '[14.38361661 -3.15080888  1.09595812]')
 
-
-
+	def testNonConvergence(self):
+		A = array([[2.0,1.0,4.0],[5.0,2.0,4.0],[9.0,10.0,11.0]])
+		b = array([30.0,70.0,110.0])
+		with self.assertRaises(SystemExit): jacobi(A,b,50)
 if __name__ == "__main__":
     unittest.main()
 
