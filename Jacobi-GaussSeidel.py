@@ -10,6 +10,9 @@ def jacobi(A, b, n):
     x= zeros(len(b)) # initial guess is a zero vector
     for i in range(n):	
         x = (b - dot(var, x)) / D 
+    residual = norm(b - dot(A, x))
+    if residual > 1: #choose residual value of 1 to test for nonconvergence. This condition is sufficient for large enough values of n. 
+		exit("No Convergence")   
     return x 
     
 def gaussSeidel(A, b, n):
@@ -19,6 +22,9 @@ def gaussSeidel(A, b, n):
 
     for i in range(n):
         x = dot(inv(lower), b - dot(upper, x)) 
+    residual = norm(b - dot(A, x))
+    if residual > 1: 
+		exit("No Convergence")
     return x
 
 
