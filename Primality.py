@@ -35,6 +35,7 @@ class Test(unittest.TestCase):
     def testPrimesUpTo(self):
         var = [i for i in primesUpTo(10)] 
         self.assertEqual(var, [2, 3, 5, 7])
+        var = [i for i in primesUpTo(1000)]
         self.assertEqual(var, [2,   3,  5,  7,  11, 13, 17, 19, 23,
 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
 71, 73, 79, 83, 89, 97, 101,    103,    107,    109,
